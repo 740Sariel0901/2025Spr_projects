@@ -59,11 +59,9 @@ A brute-force approach，The puzzle and solution will be stored in agraph data s
 
 1. **Board Construction (Path_and_Gray):**  
 
-Builds an n×n grid, projects hex coordinates into 2D for plotting.
-
-Chooses random start/end nodes on opposite edges.
-
-Randomly selects ⌊n/2⌋ gray cells along the eventual path.
+  -Builds an n×n grid, projects hex coordinates into 2D for plotting.
+  -Chooses random start/end nodes on opposite edges.
+  -Randomly selects ⌊n/2⌋ gray cells along the eventual path.
 
 2. **Path Generation:**  
 
