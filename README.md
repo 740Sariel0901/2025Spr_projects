@@ -62,25 +62,18 @@ A brute-force approach，The puzzle and solution will be stored in agraph data s
    - Chooses random start/end nodes on opposite edges.
    - Randomly selects ⌊n/2⌋ gray cells along the eventual path.
 
-3. **Path Generation:**  
+2. **Path Generation:**
+   - Depth-first search with backtracking to find any path that has at least n–1 “branchable” nodes (each with at least one off-path neighbor).
 
-Depth-first search with backtracking to find any path that has at least n–1 “branchable” nodes (each with at least one off-path neighbor).
+3. **Value Assignment (assign_value):**
+   - Iteratively assigns “comparison clues” (priority pairs) to on-path neighbors.
+   - Uses back_track() to undo conflicting assignments.
+   - Ensures all off-path neighbors of on-path nodes become “X” where necessary to block alternate routes.
 
-3. **Value Assignment (assign_value):**  
+4. **Validation:**
+   - After assignment, re-run the brute-force solver to confirm exactly one valid path remains.
+   - If not, repeat assignment from scratch.
 
-Iteratively assigns “comparison clues” (priority pairs) to on-path neighbors.
-
-Uses back_track() to undo conflicting assignments.
-
-Ensures all off-path neighbors of on-path nodes become “X” where necessary to block alternate routes.
-
-4. **Validation:**  
-
-After assignment, re-run the brute-force solver to confirm exactly one valid path remains.
-
-If not, repeat assignment from scratch.
-
-5. **Visualization (draw_graph):**  
-
-Colors start/end/gray/X and highlights the unique path with colored nodes and edges.
+5. **Visualization (draw_graph):**
+   - Colors start/end/gray/X and highlights the unique path with colored nodes and edges.
 
