@@ -12,6 +12,8 @@ Task: Player need to find the only one path (move from start
 
 
 ## How Solver Work:
+![image](https://github.com/user-attachments/assets/c1724215-86fd-4025-a527-bb1c114ffb57)
+
 
 (Making original _variations_ of puzzles and games isn't as difficult as it may seem -- we have already done this in class. _Though admittedly, making *good* game variations -- that are well-balanced, strategically interesting, with good replay value_ can take expertise or luck and play-testing with revisions.  Such balanced elegance is desirable but might not be achievable here, given the short time you have.)
 
