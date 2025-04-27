@@ -345,7 +345,7 @@ def assign_value_to_remaining_neighbors_of_on_path_nodes(graph, path, internal_n
         neighbors = [nb for nb in graph.neighbors(node) if nb not in graph.neighbors(end) and graph.nodes[nb]['value'] == "X"]
         next_node = path[index_map[node] + 1]
         next_node_value_idx = priority.index(graph.nodes[next_node]['value'])
-        if next_node in gray:
+        if node not in gray:
             # must pick from the “higher” half
             available_value = priority[next_node_value_idx + 1:]
         else:
@@ -368,7 +368,7 @@ def assign_value_to_any_remaining_nodes(graph, path, priority):
     all_neighbors = list(itertools.chain.from_iterable(all_neighbors))
     remaining_nodes = [node for node in graph.nodes if node not in all_neighbors]
     for node in remaining_nodes:
-        graph.nodes[node]['value'] = random.choice(priority + ['X'])
+        graph.nodes[node]['value'] = random.choice(priority)
     return graph
 
 
