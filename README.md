@@ -57,13 +57,12 @@ A brute-force approach，The puzzle and solution will be stored in agraph data s
 ## How Generator Work:
 ![image](https://github.com/user-attachments/assets/c1724215-86fd-4025-a527-bb1c114ffb57)
 
-1. **Board Construction (Path_and_Gray):**  
+1. **Board Construction (Path_and_Gray):**
+   - Builds an n×n grid, projects hex coordinates into 2D for plotting.
+   - Chooses random start/end nodes on opposite edges.
+   - Randomly selects ⌊n/2⌋ gray cells along the eventual path.
 
-  -Builds an n×n grid, projects hex coordinates into 2D for plotting.
-  -Chooses random start/end nodes on opposite edges.
-  -Randomly selects ⌊n/2⌋ gray cells along the eventual path.
-
-2. **Path Generation:**  
+3. **Path Generation:**  
 
 Depth-first search with backtracking to find any path that has at least n–1 “branchable” nodes (each with at least one off-path neighbor).
 
