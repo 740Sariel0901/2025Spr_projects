@@ -1,5 +1,7 @@
 # 2025 Spring Final Projects - Yuran Zhang (yuranz5)
 
+https://tsgciime4xs5.sg.larksuite.com/wiki/H3yjw6dt0i32tgkyrFGlpWNjgYe?from=from_copylink
+
 ## Game Rules
 
 - **Board**  
