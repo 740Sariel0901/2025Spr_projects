@@ -149,7 +149,17 @@ class PuzzleSolver():
 
             while True:
                 if current == self.end:
-                    return self.path
+                    valid = True
+                    for node in self.path:
+                        # Count how many neighbors of node
+                        count = sum(1 for nb in self.solution_G.neighbors(node) if nb in self.path)
+                        if count > 2:
+                            valid = False
+                            break
+                    if valid:
+                        return self.path
+                    else:
+                        break
                 moves = self.select_a_move(current, pr)
                 if not moves:
                     # dead end
@@ -158,6 +168,7 @@ class PuzzleSolver():
                 # now pick the first in priority order
                 current = moves[0]
                 self.path.append(current)
+
 
         return []  # no valid path found
 
@@ -223,17 +234,17 @@ if __name__ == "__main__":
 # ======================= Test 3: Hard =======================
     input_board = {
         'input_list': [
-            [4, 6, 5, 7, 1, 'X', 5],
-            [4, 'X', 'X', 'X', 'X', 'X', 4],
-            [3, 'X', 3, 6, 7, 5, 6],
-            [1, 3, 1, 4, 2, 1, 7],
-            [6, 6, 3, 6, 7, 3, 'X'],
-            [2, 4, 1, 'X', 2, 1, 'X'],
-            [5, 'X', 6, 3, 4, 'X', 2]
+            [4, 3, 5, 3, 4, 1, 3],
+            [3, 6, 5, 3, 5, 7, 6],
+            [3, 'X', 'X', 7, 6, 4, 3],
+            [2, 'X', 'X', 7, 'X', 3, 3],
+            [4, 'X', 'X', 'X', 2, 6, 2],
+            [1, 'X', 1, 2, 'X', 3, 6],
+            [5, 'X', 4, 'X', 1, 7, 3]
         ],
-        'start': (0, 4),
-        'end': (6, 6),
-        'gray': [(0, 2), (3, 1), (4, 4)]
+        'start': (0, 2),
+        'end': (6, 2),
+        'gray': [(3, 3), (6, 4)]
     }
 
     B = Board(input_board)
